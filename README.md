@@ -1,2 +1,2 @@
 # Python_Practice
-Learing
+Learning
