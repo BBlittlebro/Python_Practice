@@ -151,3 +151,29 @@ print(c.diameter)
 c.radius = 7
 #c.diameter = 14      => error
 print(c.diameter)
+
+##################################
+# 類別方法
+class A():
+    count = 0
+    def __init__(self):
+        A.count += 1
+    def exclaim(self):
+        print('I am an A!')
+    @classmethod
+    def kids(cls):
+        print('A has', cls.count, 'little objects.')    # cls.count => A.count
+
+A1 = A()
+A2 = A()
+A3 = A()
+
+A.kids()
+
+# 靜態方法
+class Hello():
+    @staticmethod
+    def say():
+        print("hello world!")
+
+Hello.say()         # => 不用建立物件可以直接使用
