@@ -177,3 +177,41 @@ class Hello():
         print("hello world!")
 
 Hello.say()         # => 不用建立物件可以直接使用
+
+##################################
+
+# 鴨子定型、多型
+class Quote():
+    def __init__(self, name, words):
+        self.name = name
+        self.words = words
+    def who(self):
+        return self.name
+    def says(self):
+        return self.words + '.'
+
+# 沒有要改函式，不用 super 父類別，直接自動呼叫就好
+class QuestionQuote(Quote):
+    def says(self):
+        return self.words + '?'
+
+class ExclamationQuote(Quote):
+    def says(self):
+        return self.words + '!'
+
+hunter = Quote('Hunter1', "I'm hunting rabbits")
+hunter2 = QuestionQuote('Hunter2', "What's up, doc")
+hunter3 = ExclamationQuote('Hunter3', "It's rabbit season")
+print(hunter.who(), 'says:', hunter.says())
+print(hunter2.who(), 'says:', hunter2.says())
+print(hunter3.who(), 'says:', hunter3.says())
+print("\nDuck Typing")
+
+# 跟上面毫無關係，但看起來一樣 => 鴨子定型
+class FakeDuck():
+    def who(self):
+        return "FakeDuck"
+    def says(self):
+        return "I'm fake."
+fake = FakeDuck()
+print(fake.who(), "says:", fake.says())
