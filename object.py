@@ -1,3 +1,4 @@
+from ast import And
 from turtle import circle
 
 
@@ -215,3 +216,75 @@ class FakeDuck():
         return "I'm fake."
 fake = FakeDuck()
 print(fake.who(), "says:", fake.says())
+
+##################################
+
+# 魔術方法
+class Word():
+    def __init__(self, text):
+        self.text = text
+    def __eq__(self, word2):
+        return self.text.lower() == word2.text.lower()
+    def __str__(self):
+        return self.text
+    def __repr__(self):
+        return "My word is " + self.text + "."
+
+first = Word('Ha')
+second = Word('ha')
+print(first == second)
+first           # 使用 __repr__
+print(first)    # 使用 __str__，沒寫會用__repr__
+
+##################################
+
+# 聚合與組合
+class Bill():
+    def __init__(self, description):
+        self.description = description
+class Tail():
+    def __init__(self, length):
+        self.length = length
+class Cat():
+    def __init__(self, bill, tail):
+        self.bill = bill
+        self.tail = tail
+    def about(self):
+        print("This cat has", self.bill.description, "bill and a",
+        self.tail.length, "tail.")
+a_bill = Bill("wide orange")
+a_tail = Tail("long long")
+cat = Cat(a_bill, a_tail)
+cat.about()
+
+# 具名 tuple (名稱、欄位名稱字串)
+from collections import namedtuple
+New_cat = namedtuple('New_cat', 'bill tail')   
+ncat = New_cat("wide orange", "long long")
+print(ncat)
+print(ncat.bill)
+print(ncat.tail)
+
+# 用字典製作具名 tuple
+New_cat2 = namedtuple('New_cat2', 'bill tail')
+parts = {'bill':'wide orange', "tail":"long long"}
+cat2 = New_cat2(**parts)
+print(cat2)
+
+cat3 = cat2._replace(bill = 'small black')
+print(cat3)
+
+##################################
+
+# dataclass
+from dataclasses import dataclass
+@dataclass
+class AndyDataClass:
+    name: str
+    sex: str
+    age: int = 0
+andy = AndyDataClass('Handsome Boy', 'Male', 22)
+BB = AndyDataClass('Cool Boy', 'Female')
+print(andy)
+print(andy.name)
+print(BB)
