@@ -288,3 +288,113 @@ BB = AndyDataClass('Cool Boy', 'Female')
 print(andy)
 print(andy.name)
 print(BB)
+
+##################################
+
+# 10.1
+class Thing():
+    pass
+print(Thing)
+thing = Thing()
+print(thing)
+
+#10.2
+class Thing2():
+    letters = 'abc'
+print(Thing2.letters)
+
+#10.3
+class Thing3():             #letters 屬於用 Thing3 製造的物件，而不是類別本身
+    def __init__(self):
+        self.letters = 'xyz'
+thing3 = Thing3()
+print(thing3.letters)
+
+#10.4
+class Element():
+    def __init__(self, name, symbol, number):
+        self.name = name
+        self.symbol = symbol
+        self.number = number
+    def dump(self):
+        print(self.name, self.symbol, self.number)
+element = Element("Hydrogen", "H", 1)
+
+#10.5
+dict1 = {"name":"Hydrogen", "symbol":"H", "number":1}
+hydrogen = Element(**dict1)     #kwarg 要符合類別引數
+print(hydrogen.name)
+
+#10.6
+hydrogen = Element(**dict1)
+hydrogen.dump()
+
+#10.7
+print(hydrogen)
+class Element():
+    def __init__(self, name, symbol, number):
+        self.name = name
+        self.symbol = symbol
+        self.number = number
+    def __str__(self):          #print()
+        return ("%s %s %s" % (self.name, self.symbol, self.number))
+hydrogen = Element(**dict1)
+print(hydrogen)
+
+#10.8
+class Element():
+    def __init__(self, name, symbol, number):
+        self.__name = name
+        self.__symbol = symbol
+        self.__number = number
+    def __str__(self):          #print()
+        return ("%s %s %s" % (self.__name, self.__symbol, self.__number))
+    @property
+    def name(self):
+        return self.__name
+    @property
+    def symbol(self):
+        return self.__symbol
+    @property
+    def number(self):
+        return self.__number
+    
+hydrogen = Element(**dict1)
+print(hydrogen.name, hydrogen.symbol, hydrogen.number)
+
+#10.9
+class Bear():
+    def eats(self):
+        return 'berries'
+class Rabbit():
+    def eats(self):
+        return 'clover'
+class Octothorpe():
+    def eats(self):
+        return 'campers'
+bear = Bear()
+rabbit = Rabbit()
+octothorpe = Octothorpe()
+print(bear.eats(), rabbit.eats(), octothorpe.eats())
+
+#10.10
+class Laser():
+    def does(self):
+        return "disintegrate"
+class Claw():
+    def does(delf):
+        return "crush"
+class SmartPhone():
+    def does(self):
+        return "ring"
+
+class Robot():
+    def __init__(self):
+        self.laser = Laser()
+        self.claw = Claw()
+        self.smartphone = SmartPhone()
+    def does(self):
+        return ("""Laser can %s\nClaw can %s\nSmartPhone can %s""" % 
+        (self.laser.does(), self.claw.does(), self.smartphone.does()))
+robot = Robot()
+print(robot.does())
