@@ -1,4 +1,4 @@
-# 84ms, 13.9MB, 整數算法
+# 84 ms, 13.9 MB, 整數算法
 class Solution:
     def reverse(self, x: int) -> int:
         less_than_0 = False
@@ -25,7 +25,7 @@ class Solution:
             return ans
 ########################################
 
-# 41ms, 13.8MB, 轉成字串
+# 41 ms, 13.8 MB, 轉成字串
 class Solution:
     def reverse(self, x: int) -> int:
         ans = ''
