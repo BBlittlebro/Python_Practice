@@ -77,7 +77,7 @@ def renew():
 #######################################
 win = tk.Tk()
 win.title("Phrase test!!!")
-win.geometry('800x400')
+win.geometry('800x500')
 win.resizable(False, False)
 
 fm = tk.Frame(win, width=800, height=100)
@@ -85,16 +85,16 @@ fm.pack()
 
 #######################################    
 
-question = tk.Label(fm, width=45, height=3 ,font=('微軟正黑體', 30))
+question = tk.Label(fm, width=45, height=3 ,font=('微軟正黑體', 40))
 question.pack()
 
-btn1 = tk.Button(win, width=45, height=3, bg='white', font=('微軟正黑體', 15))
+btn1 = tk.Button(win, width=45, height=3, bg='white', font=('微軟正黑體', 20))
 btn1.configure(command=lambda: button_check(btn1, answer))
-btn2 = tk.Button(win, width=45, height=3, bg='white', font=('微軟正黑體', 15))
+btn2 = tk.Button(win, width=45, height=3, bg='white', font=('微軟正黑體', 20))
 btn2.configure(command=lambda: button_check(btn2, answer))
-btn3 = tk.Button(win, width=45, height=3, bg='white', font=('微軟正黑體', 15))
+btn3 = tk.Button(win, width=45, height=3, bg='white', font=('微軟正黑體', 20))
 btn3.configure(command=lambda: button_check(btn3, answer))
-btn4 = tk.Button(win, width=45, height=3, bg='white', font=('微軟正黑體', 15))
+btn4 = tk.Button(win, width=45, height=3, bg='white', font=('微軟正黑體', 20))
 btn4.configure(command=lambda: button_check(btn4, answer))
 
 answer = 0
