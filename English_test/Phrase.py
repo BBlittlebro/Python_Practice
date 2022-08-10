@@ -76,7 +76,7 @@ def renew():
 
 #######################################
 win = tk.Tk()
-win.title("Phrase test!!!")
+win.title(input_name + " test!!!")
 win.geometry('800x500')
 win.resizable(False, False)
 
