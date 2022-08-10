@@ -6,7 +6,7 @@ fopen = open(input_name, 'r')
 dict1 = fopen.read().split('、')
 words = dict()
 for item in dict1:
-    if item:                            # 避免最後一個空格
+    if item != '\n':                            # 避免最後一個空格
         en = item.split('_')[0].strip() # 去掉換行字元
         ch = item.split('_')[1].strip()
         words[en] = ch
