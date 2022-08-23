@@ -32,7 +32,7 @@ def button_check(btn, answer):
                 if answer[0] not in temp.read():
                     en = answer[0]
                     ch = answer[1]
-                    fout.write(en + '_' + ch + '、')
+                    fout.write(en + '_' + ch + '、\n')
 
 def create_question():
     global answer
